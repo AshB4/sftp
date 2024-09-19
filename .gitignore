@@ -1,6 +1,7 @@
 #-------------------------
 # Operating Specific Junk Files
 #-------------------------
+/application/controllers/Subscription.php
 
 # OS X
 .DS_Store

@@ -41,3 +41,14 @@
         "test": "phpunit"
     }
 }
+"autoload": {
+    "psr-4": {
+        "App\\": "app/"
+    },
+    "exclude-from-classmap": [
+        "app/Controllers/Tests/*",
+        "app/Controllers/Admin/toggle_user_is_active.php",
+        "app/Controllers/Admin/ClientsTest.php"
+    ]
+}
+

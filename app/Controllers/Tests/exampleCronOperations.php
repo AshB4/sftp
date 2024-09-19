@@ -1,63 +1,63 @@
 <?php
 
-namespace App\Controllers\Tests; // Define the namespace for the controller
+// namespace App\Controllers\Tests; 
 
-use App\Controllers\BaseController; // Extend the BaseController to use CodeIgniter's functionality
-use App\Models\CronStatusModel; // Include the CronStatusModel
+// use App\Controllers\BaseController; 
+// use App\Models\CronStatusModel; 
 
-class ExampleCronOperations extends BaseController // Define your controller class
-{
-    public function exampleCronOperations()
-    {
-        ob_start(); // Start output buffering
-        echo "Starting exampleCronOperations...<br>";
+// class ExampleCronOperations extends BaseController 
+// {
+//     public function exampleCronOperations()
+//     {
+//         ob_start(); 
+//         echo "Starting exampleCronOperations...<br>";
 
-        try {
-            $cronModel = new CronStatusModel();
+//         try {
+//             $cronModel = new CronStatusModel();
 
-            // Check if headers are already sent
-            if (headers_sent($file, $line)) {
-                echo "Headers already sent in $file on line $line<br>";
-            } else {
-                echo "Headers not sent yet.<br>";
-            }
+//             // Check if headers are already sent
+//             if (headers_sent($file, $line)) {
+//                 echo "Headers already sent in $file on line $line<br>";
+//             } else {
+//                 echo "Headers not sent yet.<br>";
+//             }
 
-            // Checkpoint before creating cron status
-            echo "Checkpoint 1: Before creating cron status.<br>";
+//             // Checkpoint before creating cron status
+//             echo "Checkpoint 1: Before creating cron status.<br>";
 
-            // Create a new cron status entry
-            $newId = $cronModel->createCronStatus([
-                'Type' => 'Lead Import',
-                'Last_Ran' => date('Y-m-d H:i:s'),
-                'Status' => 'Completed',
-                'Message' => 'Successfully imported leads.'
-            ]);
+//             // Create a new cron status entry
+//             $newId = $cronModel->createCronStatus([
+//                 'Type' => 'Lead Import',
+//                 'Last_Ran' => date('Y-m-d H:i:s'),
+//                 'Status' => 'Completed',
+//                 'Message' => 'Successfully imported leads.'
+//             ]);
 
-            echo "Created new cron status with ID: $newId<br>";
+//             echo "Created new cron status with ID: $newId<br>";
 
-            // Checkpoint after creating cron status
-            echo "Checkpoint 2: After creating cron status.<br>";
+//             // Checkpoint after creating cron status
+//             echo "Checkpoint 2: After creating cron status.<br>";
 
-            // Read a specific cron status by ID
-            $status = $cronModel->getCronStatusById($newId);
-            echo "Read cron status: " . json_encode($status) . "<br>";
+//             // Read a specific cron status by ID
+//             $status = $cronModel->getCronStatusById($newId);
+//             echo "Read cron status: " . json_encode($status) . "<br>";
 
-            // Read all cron statuses
-            $allStatuses = $cronModel->getAllCronStatuses();
-            echo "All cron statuses: " . json_encode($allStatuses) . "<br>";
+//             // Read all cron statuses
+//             $allStatuses = $cronModel->getAllCronStatuses();
+//             echo "All cron statuses: " . json_encode($allStatuses) . "<br>";
 
-            // Update a cron status entry
-            $updated = $cronModel->updateCronStatus($newId, ['Status' => 'Failed', 'Message' => 'API error occurred.']);
-            echo "Updated cron status: " . ($updated ? 'Success' : 'Failure') . "<br>";
+//             // Update a cron status entry
+//             $updated = $cronModel->updateCronStatus($newId, ['Status' => 'Failed', 'Message' => 'API error occurred.']);
+//             echo "Updated cron status: " . ($updated ? 'Success' : 'Failure') . "<br>";
 
-            // Delete a cron status entry
-            $deleted = $cronModel->deleteCronStatus($newId);
-            echo "Deleted cron status: " . ($deleted ? 'Success' : 'Failure') . "<br>";
+//             // Delete a cron status entry
+//             $deleted = $cronModel->deleteCronStatus($newId);
+//             echo "Deleted cron status: " . ($deleted ? 'Success' : 'Failure') . "<br>";
 
-        } catch (\Exception $e) {
-            echo 'An error occurred: ' . $e->getMessage();
-        }
+//         } catch (\Exception $e) {
+//             echo 'An error occurred: ' . $e->getMessage();
+//         }
 
-        ob_end_flush(); // End output buffering and flush the output
-    }
-}
+//         ob_end_flush(); 
+//     }
+// }
