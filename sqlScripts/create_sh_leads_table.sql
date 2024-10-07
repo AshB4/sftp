@@ -14,5 +14,7 @@ CREATE TABLE sh_leads (
     email_address VARCHAR(255),
     sentiment VARCHAR(255),
     customer_id VARCHAR(255)
+ lead_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Add timestamp to track lead creation time on perfex
+    UNIQUE(client_id, lead_id)  -- Ensure client and lead combinations are unique , add on perfex also
 );
 

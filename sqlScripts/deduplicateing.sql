@@ -12,4 +12,5 @@ ON DUPLICATE KEY UPDATE
     caller_phone = VALUES(caller_phone),
     email_address = VALUES(email_address),
     sentiment = VALUES(sentiment),
-    customer_id = VALUES(customer_id);
+    customer_id = VALUES(customer_id),
+    lead_data = CURRENT_TIMESTAMP; --add this to perfex too
